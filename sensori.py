@@ -5,6 +5,7 @@ import DBconnect
 import time
 import subprocess
 
+
 camera = PiCamera()
 pir = MotionSensor(4)
 while True:
