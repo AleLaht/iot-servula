@@ -1,0 +1,23 @@
+body {
+	font-size: 11px;
+}
+.box{
+	display: none;
+	width: 100%;
+	padding: 0;
+	border: 0;
+}
+iframe {
+	border: 0;
+	padding: 0;
+	margin-top: -200;
+}
+
+a:hover + .box,.box:hover{
+	display:block;
+	position: relative;
+	z-index: 100;
+}
+.tila {
+	height: 300px;
+}

@@ -6,13 +6,16 @@ import time
 import subprocess
 
 
+
 camera = PiCamera()
 pir = MotionSensor(4)
+camera.vflip = True
 while True:
 	if pir.motion_detected:
+		date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 		filename = datetime.now().strftime("%Y-%m-%d_%H.%M.%S.jpeg")
-		camera.capture(filename)
-		p = subprocess.Popen(["scp", filename, "pi@10.207.3.236:/home/pi/kuvat"])
-		print("Motion detected!")
 		DBconnect.connect()
-	time.sleep(1)
+		camera.capture("kuvat/" + filename)
+		p = subprocess.Popen(["scp", "kuvat/" + filename, "pi@10.207.3.236:/var/www/html/kuvat"])
+		print("Motion detected!")
+	time.sleep(5)

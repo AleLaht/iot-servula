@@ -2,9 +2,6 @@ import pymysql.cursors
 import pymysql
 from datetime import datetime
 
-date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-
 # Connect to the database
 connection = pymysql.connect(host='10.207.3.236',
                              user='pi',
@@ -13,10 +10,12 @@ connection = pymysql.connect(host='10.207.3.236',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
 def connect():
+	date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+	filename = datetime.now().strftime("%Y-%m-%d_%H.%M.%S.jpeg")
 	with connection.cursor() as cursor:
 		# Create a new record
-		sql = "INSERT INTO `raw_data` (datetime, movement) VALUES (%s, %s)"
-		cursor.execute(sql, (date, '1'))
+		sql = "INSERT INTO `raw_data` (datetime, movement, kuvaurl) VALUES (%s, %s, %s)"
+		cursor.execute(sql, (date, '1', 'kuvat/' + filename))
 
 	# connection is not autocommit by default. So you must commit to save
 	# your changes.
