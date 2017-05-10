@@ -1,0 +1,6 @@
+CREATE EVENT IF NOT EXISTS clear_data_older_than_30_days
+ON SCHEDULE
+	EVERY 1 DAY
+	COMMENT 'clear data'
+	DO
+	DELETE FROM raw_data WHERE datetime < (NOW() - INTERVAL 30 DAY);
