@@ -3,9 +3,9 @@ import pymysql
 from datetime import datetime
 
 # Connect to the database
-connection = pymysql.connect(host='10.207.3.236',
-                             user='pi',
-                             password='Projekti789',
+connection = pymysql.connect(host='*IP-address*',
+                             user='*username*',
+                             password='*Password*',
                              db='sensori',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
