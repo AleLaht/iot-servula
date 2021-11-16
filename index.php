@@ -21,10 +21,10 @@ Kuva
 </td>
 </tr>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "Qwerty789";
-$dbname = "sensori";
+$servername = "*IPADDRESS*";
+$username = "*USERNAME*";
+$password = "*PASSWORD*";
+$dbname = "*DBNAME*";
 
 //Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
