@@ -16,6 +16,6 @@ while True:
 		filename = datetime.now().strftime("%Y-%m-%d_%H.%M.%S.jpeg")
 		DBconnect.connect()
 		camera.capture("kuvat/" + filename)
-		p = subprocess.Popen(["scp", "kuvat/" + filename, "pi@10.207.3.236:/var/www/html/kuvat"])
+		p = subprocess.Popen(["scp", "kuvat/" + filename, "*USERNAME@IPADDRESS*:/var/www/html/kuvat"])
 		print("Motion detected!")
 	time.sleep(5)
